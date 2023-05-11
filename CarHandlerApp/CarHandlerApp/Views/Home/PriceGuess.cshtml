@@ -1,0 +1,19 @@
+﻿@if (Model.Count > 5000)
+{
+    <p class="alert-success">You reached the limit of attempts</p>
+}
+else
+{
+    if (Model.IsCorrect)
+    {
+        <p class="alert alert-info">Great job ! </p>
+    }
+    else
+    {
+        <p class="alert alert-info">Wrong answer !</p>
+    }
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Click here go back.</a>
+}
+
+
+

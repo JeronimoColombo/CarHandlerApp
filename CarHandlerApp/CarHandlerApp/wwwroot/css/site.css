@@ -1,0 +1,31 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.car-box {
+    float: left;
+    padding: 28px;
+    margin-bottom: 40px;
+}
+
+.car-boxes {
+    width: 70%;
+    margin-top: 70px;
+    margin-left: 242px;
+    margin-bottom: 244px;
+}

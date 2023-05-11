@@ -1,0 +1,38 @@
+﻿@model List<Car>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome !</h1>
+    <div class="car-boxes">
+        @if (!string.IsNullOrEmpty(ViewBag.GuessPrice))
+        {
+            <div class="alert alert-info">@ViewBag.GuessPrice</div>
+            <div class="alert alert-info">@ViewBag.GuessPrice</div>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Volver</a>
+        }
+
+        @foreach (var item in Model)
+        {
+            @using (Html.BeginForm("PriceGuess", "Home", FormMethod.Post))
+            {
+                <div class="car-box">
+                    <p>
+                        <h4 name="carId-@item.Id"> @item.Make @item.Model </h4>
+                    </p>
+                    <p>Year: @item.Year</p>
+                    <p>Doors: @item.Doors</p>
+                    <p>Color: @item.Color</p>
+                    Price: <input type="text" id="@item.Id" name="priceGuessed" />
+                    @Html.Hidden("carId", @item.Id)
+                    <input value="Take a guess !" id="priceSubmit" type="submit">
+                </div>
+
+            }     
+        }
+
+    </div>
+
+</div>
